@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://stride-strength.local/schemas/step_event.json",
+  "title": "Step Event",
+  "description": "Canonical ground-truth or derived step-event annotation shared by Python research and Kotlin SDK.",
+  "type": "object",
+  "required": ["dataset_id", "participant_id", "event_timestamp_ns", "event_type", "source"],
+  "properties": {
+    "dataset_id": { "type": "string" },
+    "participant_id": { "type": "string" },
+    "session_id": { "type": "string" },
+    "event_timestamp_ns": { "type": "integer", "description": "Event timestamp in nanoseconds." },
+    "event_type": { "type": "string", "enum": ["initial_contact", "terminal_contact"] },
+    "side": { "type": "string", "enum": ["left", "right", "unknown"] },
+    "source": {
+      "type": "string",
+      "enum": ["force_plate", "motion_capture", "walkway", "derived", "hardware_step_detector"]
+    },
+    "confidence": { "type": "number", "minimum": 0.0, "maximum": 1.0 },
+    "matching_tolerance_ms": { "type": "number", "description": "Tolerance used for one-to-one event matching during evaluation." }
+  },
+  "additionalProperties": false
+}

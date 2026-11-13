@@ -218,3 +218,19 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Stride & Strength — dataset & research artifacts
+research/datasets/raw/
+research/datasets/processed/
+reports/*/figures/
+*.zip
+*.csv.gz
+# Keep manifests and schemas tracked
+!research/datasets/manifests/
+!research/datasets/schemas/
+
+# Local-only downloads (papers, raw datasets) — never committed
+local/
+
+# oh my opencode data
+.omo/

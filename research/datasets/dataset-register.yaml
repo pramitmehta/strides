@@ -1,0 +1,107 @@
+# Canonical dataset registry for Stride & Strength research.
+# Raw data is NOT stored here. Only metadata, provenance, and acquisition info.
+# See RESEARCH_AND_DATASETS.md for the data policy.
+
+datasets:
+  - id: zenodo_16541185
+    title: "Kinematic and Kinetic Data of Treadmill, Overground and Outdoor Running"
+    source_url: "https://zenodo.org/records/16541185"
+    doi: "10.5281/zenodo.16541185"
+    concept_doi: "10.5281/zenodo.16541184"
+    version: "0.1"
+    published: "2025-07-28"
+    license: "CC-BY-4.0"
+    archive: "running_treadmill_overground_outside.zip"
+    archive_size_bytes: 312108505
+    archive_md5: "d0ede3df73a04279e31e98a699bde86d"
+    paper: "Baker LM et al. (2025) PLOS ONE 20(9): e0330042, https://doi.org/10.1371/journal.pone.0330042"
+    participants: 15
+    sensor_locations: [pelvis, thigh, shank, foot]
+    channels: [delta_time_s, speed_ms, acc_x, acc_y, acc_z, gyr_x, gyr_y, gyr_z, sag_ang]
+    sampling_rate_hz: null  # not stated in record; verify in paper or derive from delta_time
+    ground_truth: "3D GRF (ap/ml/vertical) from force plates in TM_FP and OG_FP settings; step events derivable via threshold (proposed 10 N). No explicit IC/TC annotation files."
+    settings: [TM_FP, OG_FP, OG, OUT]
+    role: primary
+    status: characterized_not_acquired
+
+  - id: zenodo_7997851
+    title: "Multivariate Time Series Data of Fatigued and Non-Fatigued Running from Inertial Measurement Units"
+    source_url: "https://zenodo.org/records/7997851"
+    doi: "10.5281/zenodo.7997851"
+    concept_doi: "10.5281/zenodo.7997850"
+    version: "0.0"
+    published: "2023-06-02"
+    license: "CC-BY-4.0"
+    archive_files: [Accel_X_all.csv, Accel_Y_all.csv, Accel_Z_all.csv, Accel_mag_all.csv, Gyro_X_all.csv, Gyro_Y_all.csv, Gyro_Z_all.csv, Gyro_mag_all.csv]
+    archive_size_bytes_total: 80912952
+    paper: "Kathirgamanathan B et al. (2023) IEEE BSN, doi 10.1109/BSN58485.2023.10331612; XKDD 2023"
+    participants: 19
+    sensor_locations: [lumbar]
+    sensor_hardware: "Shimmer3 IMU"
+    channels: [acc_x, acc_y, acc_z, gyr_x, gyr_y, gyr_z, mag_x, mag_y, mag_z, acc_mag, gyr_mag]
+    sampling_rate_hz: 256
+    ground_truth: "None for step events. Labels are fatigue state per segmented stride ('F'/'NF') and participant number."
+    role: fatigue_robustness
+    status: characterized_not_acquired
+
+  - id: fda_wearables_gait
+    title: "Open-Access Wearables Dataset to Evaluate Factors Impacting Accuracy of Smartphone Gait Metrics"
+    source_url: "https://cdrh-rst.fda.gov/open-access-wearables-dataset-evaluate-factors-impacting-accuracy-smartphone-gait-metrics"
+    rst_reference: "RST24HD01.01"
+    published: "2024-04-18"
+    license: "CC0-1.0 (GitHub repo); full-dataset license on Synapse unverified"
+    download: "Synapse syn51664250 (wiki 623161 data access, 622541 protocol); GitHub sample data dbp-osel"
+    participants: 20
+    sensor_locations: [smartphone_back, smartphone_thigh, reference_imu]
+    sensor_hardware: "Smartphone IMU (iPhone 10, Galaxy S22); reference IMU (Xsens MTw Awinda); walkway (Protokinetics Zeno)"
+    channels: [acc_x, acc_y, acc_z, gyr_x, gyr_y, gyr_z, walkway_foot_contact]
+    sampling_rate_hz: 100
+    ground_truth: "Walkway binary left/right foot contact"
+    role: transfer_validation_smartphone
+    caveat: "Walking gait only; not running ground truth."
+    status: characterized_not_acquired
+
+  - id: zenodo_11522050
+    title: "Lower-body Inertial Sensor and Optical Motion Capture Recordings of Walking and Running"
+    source_url: "https://zenodo.org/records/11522050"
+    doi: "10.5281/zenodo.11522050"
+    version: "1.0"
+    published: "2024-06-07"
+    license: "CC-BY-4.0"
+    archive_size_bytes: 11800000000
+    paper: "Dorschky E et al. (2019) J Biomech 95: 109278, https://doi.org/10.1016/j.jbiomech.2019.07.022"
+    participants: 10
+    sensor_locations: [pelvis, thigh_left, thigh_right, shank_left, shank_right, foot_left, foot_right]
+    sensor_hardware: "Custom IMUs (Portabiles), accel (±16g), gyro (±2000 deg/s)"
+    sampling_rate_hz: 1000
+    ground_truth: "OMC (16 IR cameras) + Kistler force plate (right foot); running at 3 speeds"
+    role: recommended_followup
+    status: characterized_not_acquired
+
+  - id: grouvel_2023
+    title: "A dataset of asymptomatic human gait and movements obtained from markers, IMUs, insoles and force plates"
+    source_url: "https://doi.org/10.1038/s41597-023-02077-3"
+    published: "2023"
+    license: "CC-BY-4.0"
+    participants: 10
+    sensor_locations: [feet, shanks, thighs, pelvis, trunk]
+    sensor_hardware: "IMUs (Physilog6S, GaitUp); insoles (Moticon); force plates (AMTI); mocap markers"
+    sampling_rate_hz: 256
+    ground_truth: "3 force plates (1000 Hz) + mocap; 2 running trials per subject"
+    role: recommended_followup
+    caveat: "Only 2 running trials per subject; IMU-to-optoelectronic sync ~0.1 s."
+    status: characterized_not_acquired
+
+  - id: fukuchi_rbds
+    title: "A public dataset of running biomechanics (RBDS)"
+    source_url: "https://bmclab.pesquisa.ufabc.edu.br/datasets/rbds/"
+    doi_data: "10.6084/m9.figshare.4543435"
+    paper: "Fukuchi RK et al. (2017) PeerJ 5: e3298, https://doi.org/10.7717/peerj.3298"
+    license: "CC-BY-4.0"
+    participants: 28
+    sensor_locations: []
+    sensor_hardware: "None (mocap + instrumented treadmill only)"
+    ground_truth: "Mocap (12 cameras, 48 markers) + Bertec dual-belt force plates; speeds 2.5/3.5/4.5 m/s"
+    role: mocap_only_alternative
+    caveat: "No IMU; does not directly support IMU-based cadence validation."
+    status: characterized_not_acquired
